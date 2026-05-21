@@ -1,5 +1,6 @@
 ### ER-Диаграмма
-mermaid```
+
+```mermaid
 erDiagram
     LOTS ||--|| MIN_STAKES : "имеет"
     MIN_STAKES ||--o{ STAKE_HISTORY : "содержит"
@@ -38,5 +39,4 @@ erDiagram
         INT_UNSIGNED id PK "ID"
         VARCHAR(255) status "Название статуса"
     }
-
 ```

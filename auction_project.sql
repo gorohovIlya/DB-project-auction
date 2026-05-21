@@ -42,8 +42,3 @@ CREATE TABLE IF NOT EXISTS `stake_history` (
     FOREIGN KEY (`status_code`) REFERENCES statuses(`id`),
     ON DELETE CASCADE
     );
-    
-    
-
-
-

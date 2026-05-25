@@ -91,14 +91,20 @@ WHERE ms.costs BETWEEN 50000 AND 100000;
 ### Использование VIEW
 
 ```sql
--- Получить статистику по статусам ставок
+-- Категории для первых 10 лотов
+SELECT * FROM view_lots_categories;
+
+-- Количество ставок по статусам
 SELECT * FROM view_stakes_by_status;
 
--- Топ клиентов по количеству ставок
+-- Топ-3 клиента по ставкам
 SELECT * FROM view_top_clients_by_stakes;
 
--- Лоты без ставок
-SELECT * FROM view_lots_without_stakes;
+-- Категории по количеству лотов
+SELECT * FROM view_categories_by_lots_count;
+
+-- Разница между финальной и стартовой ставкой
+SELECT * FROM view_stakes_delta;
 ```
 
 ### UPDATE (обновление данных)

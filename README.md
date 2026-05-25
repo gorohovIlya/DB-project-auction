@@ -3,7 +3,7 @@
 ```mermaid
 erDiagram
     LOTS ||--|| MIN_STAKES : "имеет"
-    MIN_STAKES ||--o{ STAKE_HISTORY : "содержит"
+    MIN_STAKES ||--|| STAKE_HISTORY : "содержит"
     CLIENTS ||--o{ STAKE_HISTORY : "делает"
     STATUSES ||--o{ STAKE_HISTORY : "определяет"
 

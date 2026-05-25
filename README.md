@@ -1,4 +1,4 @@
-### ER-Диаграмма
+# ER-Диаграмма
 
 ```mermaid
 erDiagram

@@ -3,14 +3,26 @@
 ```mermaid
 erDiagram
     LOTS ||--|| MIN_STAKES : "имеет"
-    MIN_STAKES ||--|| STAKE_HISTORY : "содержит"
+    MIN_STAKES ||--o{ STAKE_HISTORY : "содержит"
     CLIENTS ||--o{ STAKE_HISTORY : "делает"
     STATUSES ||--o{ STAKE_HISTORY : "определяет"
+    CATEGORIES_LOTS ||--o{ LOTS : "содержит"
+    CATEGORIES_LOTS ||--o{ CATEGORIES : "содержит"
+
+    CATEGORIES {
+        INT id PK "ID"
+        VARCHAR(255) name "Имя категории"
+    }
 
     LOTS {
-        INT id PK "Идентификатор"
+        INT id PK "ID"
         VARCHAR(255) name "Имя лота"
         VARCHAR(511) description "Описание лота"
+    }
+
+    CATEGORIES_LOTS {
+        INT lot_id PK "ID лота"
+        INT category_id PK "ID категории"
     }
 
     MIN_STAKES {

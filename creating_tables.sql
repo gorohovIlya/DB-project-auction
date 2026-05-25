@@ -8,9 +8,8 @@ CREATE TABLE IF NOT EXISTS `lots` (
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(255) NOT NULL,
     `description` VARCHAR(511),
-    FOREIGN KEY(`category_id`) REFERENCES categories(`id`),
     PRIMARY KEY(`id`)
-    );
+);
 
 CREATE TABLE IF NOT EXISTS `categories_lots` (
     `lot_id` INT UNSIGNED NOT NULL,
@@ -38,11 +37,11 @@ CREATE TABLE IF NOT EXISTS `clients` (
     PRIMARY KEY(`id`)
     );
 
-CREATE TABLE IF NOT EXISTS `statuses` (
-    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    `status` VARCHAR(255) NOT NULL,
-    PRIMARY KEY(`id`)
-);   
+    CREATE TABLE IF NOT EXISTS `statuses` (
+        `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+        `status` VARCHAR(255) NOT NULL,
+        PRIMARY KEY(`id`)
+    );   
 
 CREATE TABLE IF NOT EXISTS `stake_history` (
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -52,8 +51,7 @@ CREATE TABLE IF NOT EXISTS `stake_history` (
     `money_amount` DECIMAL(15, 2),
     `status_code` INT UNSIGNED NOT NULL,
     PRIMARY KEY (`id`),
-    FOREIGN KEY (`min_stake_id`) REFERENCES min_stakes(`id`),
-    FOREIGN KEY (`client_id`) REFERENCES clients(`id`),
-    FOREIGN KEY (`status_code`) REFERENCES statuses(`id`),
-    ON DELETE CASCADE
+    FOREIGN KEY (`min_stake_id`) REFERENCES min_stakes(`id`) ON DELETE CASCADE,
+    FOREIGN KEY (`client_id`) REFERENCES clients(`id`) ON DELETE CASCADE,
+    FOREIGN KEY (`status_code`) REFERENCES statuses(`id`) ON DELETE CASCADE
     );
